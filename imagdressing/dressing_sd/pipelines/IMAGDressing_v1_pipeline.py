@@ -377,7 +377,7 @@ class IMAGDressing_v1(StableDiffusionPipeline):
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
 
-        device = self._execution_device
+        device = torch.device("cuda")
         self._cross_attention_kwargs = cross_attention_kwargs
         self._clip_skip = clip_skip
         do_classifier_free_guidance = guidance_scale > 1.0
